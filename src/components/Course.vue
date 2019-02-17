@@ -312,7 +312,22 @@ export default {
         })
     },
     delCourse: function (courseId) {
-
+      let Info = JSON.stringify({
+        sno: this.sno,
+        cno: courseId
+      })
+      this.$axios.post('/next/del', Info)
+        .then(response => {
+          if (response.data.code === 200) {
+            window.alert(response.data.msg)
+            let cno = response.data.cno
+            for (let i = 0; i < this.nextSemesterCourses.length; i++) {
+              if (this.nextSemesterCourses[i].courseId === cno) {
+                this.nextSemesterCourses.splice(i, 1)
+              }
+            }
+          }
+        })
     }
   }
 }
