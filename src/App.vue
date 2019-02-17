@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <div id="app">
       <v-app>
         <v-navigation-drawer
                 fixed
@@ -49,7 +48,6 @@
           <span class="white--text">&copy; 2017</span>
         </v-footer>
       </v-app>
-    </div>
   </div>
 </template>
 

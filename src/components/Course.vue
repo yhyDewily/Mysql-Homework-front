@@ -316,7 +316,7 @@ export default {
         sno: this.sno,
         cno: courseId
       })
-      this.$axios.post('/next/del', Info)
+      this.$axios.post('/next/delete', Info)
         .then(response => {
           if (response.data.code === 200) {
             window.alert(response.data.msg)
