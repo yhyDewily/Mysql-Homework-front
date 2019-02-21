@@ -26,7 +26,6 @@
                             :append-icon="loginData.visible ? 'visibility_off' : 'visibility'"
                             :append-icon-cb="() => (loginData.visible = !loginData.visible)"
                             :type="loginData.visible ? 'text' : 'password'"
-                            @keyup.enter="loginTest"
                             required></v-text-field>
                     <v-btn large color="primary" dark @click="login">登录</v-btn>
                 </v-form>
@@ -47,7 +46,7 @@ export default {
       studentID: null,
       studentIDRules: [
         (v) => !!v || '学号不能为空',
-        (v) => (v && v.length === 2) || '学号长度应为2'
+        (v) => (v && v.length >= 2) || '学号长度应大于等于2'
       ],
       password: null,
       passwordRules: [

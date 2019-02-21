@@ -292,20 +292,21 @@ export default {
         .then(response => {
           if (response.data.code === 200) {
             window.alert('选课成功')
+            this.$router.go(0)
             // this.nextSemesterCourses = []
-            console.log(response.data)
-            this.nextSemesterCourses.push({
-              courseId: response.data['course'].cno,
-              courseName: response.data['course'].cname,
-              courseCredit: response.data['course'].credit,
-              teacherName: response.data['course'].tname
-            })
-            let cno = response.data.cno
-            for (let i = 0; i < this.courses.length; i++) {
-              if (this.courses[i].courseId === cno) {
-                this.courses.splice(i, 1)
-              }
-            }
+            // console.log(response.data)
+            // this.nextSemesterCourses.push({
+            //   courseId: response.data['course'].cno,
+            //   courseName: response.data['course'].cname,
+            //   courseCredit: response.data['course'].credit,
+            //   teacherName: response.data['course'].tname
+            // })
+            // let cno = response.data.cno
+            // for (let i = 0; i < this.courses.length; i++) {
+            //   if (this.courses[i].courseId === cno) {
+            //     this.courses.splice(i, 1)
+            //   }
+            // }
           }
         }).catch(error => {
           window.alert(error)
@@ -320,12 +321,13 @@ export default {
         .then(response => {
           if (response.data.code === 200) {
             window.alert(response.data.msg)
-            let cno = response.data.cno
-            for (let i = 0; i < this.nextSemesterCourses.length; i++) {
-              if (this.nextSemesterCourses[i].courseId === cno) {
-                this.nextSemesterCourses.splice(i, 1)
-              }
-            }
+            this.$router.go(0)
+            // let cno = response.data.cno
+            // for (let i = 0; i < this.nextSemesterCourses.length; i++) {
+            //   if (this.nextSemesterCourses[i].courseId === cno) {
+            //     this.nextSemesterCourses.splice(i, 1)
+            //   }
+            // }
           }
         })
     }

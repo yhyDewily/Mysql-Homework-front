@@ -61,7 +61,8 @@ export default {
   }),
   methods: {
     logout: function () {
-      console.log('注销')
+      this.$cookies.remove('id')
+      this.$router.go(0)
     }
   }
 }
